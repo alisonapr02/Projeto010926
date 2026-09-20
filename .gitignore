@@ -1,0 +1,19 @@
+# Build outputs
+**/bin/
+**/obj/
+artifacts/
+TestResults/
+
+# Local IDE settings
+.vs/
+.idea/
+*.user
+*.suo
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+appsettings.Local.json
