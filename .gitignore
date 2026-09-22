@@ -17,3 +17,4 @@ TestResults/
 *.pfx
 *.p12
 appsettings.Local.json
+**/App_Data/

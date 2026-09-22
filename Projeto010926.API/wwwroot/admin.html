@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#073BBA"><title>Painel administrativo · VagaPerto</title>
+  <link rel="stylesheet" href="/styles.css?v=9"><script src="/admin.js?v=6" defer></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="/" aria-label="VagaPerto, início"><img class="logo" src="/image/logo.png" alt="VagaPerto" width="2172" height="724"></a><nav aria-label="Principal"><a href="/">Voltar ao site</a></nav></header>
+<main class="admin-main">
+  <p id="admin-status" class="admin-status" role="status" aria-live="polite"></p>
+  <section id="admin-login" class="admin-login account-card">
+    <p class="eyebrow">ÁREA RESTRITA</p><h1>Painel administrativo<span class="destaque">.</span></h1><p class="muted">Gerencie as contas cadastradas no VagaPerto.</p>
+    <form id="admin-login-form" class="admin-form"><label>Usuário administrativo<input id="admin-user" type="text" inputmode="text" autocomplete="username" required value="admin" placeholder="admin"></label><label>Senha<input id="admin-password" type="password" autocomplete="current-password" required></label><button class="primary" type="submit">Entrar no painel ↗</button></form>
+  </section>
+  <section id="admin-panel" hidden>
+    <div class="admin-heading"><div><p class="eyebrow">GESTÃO DE CONTAS</p><h1>Usuários<span class="destaque">.</span></h1><p class="muted">Crie, consulte, edite ou exclua contas da aplicação.</p></div><button id="admin-logout" class="secondary" type="button">Sair</button></div>
+    <div class="admin-layout">
+      <div class="admin-list account-card"><div class="admin-list-heading"><div><h2>Contas cadastradas</h2><label class="admin-filter">Filtrar por perfil<select id="profile-filter"><option value="todos">Todos os usuários</option><option value="usuario">Usuários comuns</option><option value="administrador">Administradores</option><option value="programador">Programadores</option></select></label></div><button id="new-user" class="primary" type="button">Novo usuário</button></div><div class="table-wrap"><table><thead><tr><th>Nome</th><th>E-mail</th><th>Perfil</th><th>Cidade</th><th>Vagas</th><th>Ações</th></tr></thead><tbody id="users-body"></tbody></table></div></div>
+      <div class="admin-editor account-card"><h2 id="editor-title">Novo usuário</h2><form id="user-form" class="admin-form"><label id="identifier-label">E-mail ou usuário<small id="identifier-note">Usuário comum exige e-mail com @. Administrador e Programador aceitam usuário sem @.</small><input id="user-email" type="text" required maxlength="254" placeholder="nome ou voce@exemplo.com"></label><label>Nome<input id="user-name" required minlength="2" maxlength="100"></label><label>Perfil<select id="user-profile" required><option value="usuario">Usuário comum</option><option value="administrador">Administrador</option><option value="programador">Programador</option></select></label><label>Cidade<input id="user-city" required maxlength="100" value="João Pessoa"></label><label>Senha <small id="password-note">obrigatória, mínimo de 10 caracteres</small><input id="user-password" type="password" minlength="10" maxlength="128"></label><div class="admin-form-actions"><button class="primary" type="submit">Salvar usuário</button><button id="cancel-edit" class="secondary" type="button">Limpar</button></div></form><div id="user-details" class="user-details" hidden><h3>Vagas salvas</h3><div id="saved-users-jobs"></div></div></div>
+    </div>
+  </section>
+</main>
+<footer><a class="brand" href="/"><img class="logo" src="/image/logo.png" alt="VagaPerto" width="2172" height="724"></a><span>Administração segura de contas.</span></footer>
+</body></html>

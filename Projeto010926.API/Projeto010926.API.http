@@ -1,6 +1,47 @@
-@Projeto010926.API_HostAddress = http://localhost:5003
+﻿@baseUrl = http://localhost:5003
+@apiKey = substitua-pela-chave-configurada-no-servidor
 
-GET {{Projeto010926.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Vagas de João Pessoa/PB
+GET {{baseUrl}}/api/vagas
 
-###
+### Busca por cargo, cidade e contrato
+GET {{baseUrl}}/api/vagas?termo=desenvolvedor&cidade=Joao%20Pessoa&estado=PB&contrato=clt
+
+### Busca por distância dentro da cidade
+GET {{baseUrl}}/api/vagas?latitude=-7.12&longitude=-34.86&raioKm=10
+
+### Cadastro de exemplo FICTÍCIO — substitua por uma vaga verificada
+POST {{baseUrl}}/api/vagas
+Content-Type: application/json
+X-Api-Key: {{apiKey}}
+
+{
+  "titulo": "Desenvolvedor .NET — exemplo fictício",
+  "empresa": "Empresa de demonstração",
+  "descricao": "Cadastro para testar a API. Não é uma oferta real.",
+  "cidade": "João Pessoa",
+  "estado": "PB",
+  "modalidade": "hibrido",
+  "contrato": "clt",
+  "salario": 3500,
+  "linkCandidatura": "https://example.com/vaga-ficticia",
+  "latitude": -7.12,
+  "longitude": -34.86
+}
+
+### Substitua pelo ID retornado no cadastro
+@vagaId = 00000000-0000-0000-0000-000000000000
+GET {{baseUrl}}/api/vagas/{{vagaId}}
+
+### Encerrar uma vaga
+PATCH {{baseUrl}}/api/vagas/{{vagaId}}/encerrar
+X-Api-Key: {{apiKey}}
+
+### Documentação
+GET {{baseUrl}}/openapi/v1.json
+
+### Vagas reais: JSearch (usa chave configurada apenas no servidor)
+GET {{baseUrl}}/api/vagas/externas
+
+### Busca externa por cargo
+GET {{baseUrl}}/api/vagas/externas?termo=atendente&cidade=Joao%20Pessoa&estado=PB&pagina=1
